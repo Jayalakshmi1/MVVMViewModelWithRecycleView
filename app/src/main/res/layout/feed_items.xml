@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="feed"
+            type="com.example.wiprotest.ui.main.model.Row"/>
+
+    </data>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:elevation="3dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_profile"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:profileImage="@{feed.imageHref}"
+                    tools:ignore="ContentDescription,MissingConstraints"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@{feed.title}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    bind:layout_constraintEnd_toStartOf="@+id/image_profile"
+                    bind:layout_constraintHorizontal_bias="0.0"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@{feed.description}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    bind:layout_constraintTop_toBottomOf="@+id/tv_title"
+                    bind:layout_constraintEnd_toStartOf="@+id/image_profile"
+                    bind:layout_constraintHorizontal_bias="0.0"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    tools:text="description" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+</layout>
